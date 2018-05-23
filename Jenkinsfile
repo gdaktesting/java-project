@@ -51,7 +51,18 @@ pipeline {
 
             steps {
                 sh "wget http://192.168.56.3/rectangles/all/rectangle_${env.BUILD_NUMBER}.jar"
-                sh "java -jar rectangle_${env.BUILD_NUMBER}.jar  3 4"
+                sh "java -jar rectangle_${env.BUILD_NUMBER}.jar 3 4"
+            }
+        }
+
+        stage ("Running on Debian") {
+            agent {
+                docker "openjdk:latest"
+            }
+
+            steps {
+                sh "wget http://192.168.56.3/rectangles/all/rectangle_${env.BUILD_NUMBER}.jar"
+                sh "java -jar rectangle_${env.BUILD_NUMBER}.jar 3 4"
             }
         }
 

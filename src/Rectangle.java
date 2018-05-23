@@ -12,7 +12,7 @@ public class Rectangle {
         return length * width;
     }
 
-    public int geetPermiter(){
+    public int getPerimeter(){
         return 2 * (length + width);
     }
 }

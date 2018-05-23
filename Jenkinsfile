@@ -1,6 +1,8 @@
 pipeline {
 
-    agent any
+    agent {
+        label 'master'
+    }
 
     options {
         buildDiscarder(logRotator(numToKeepStr: '5', artifactNumToKeepStr: '2'))
@@ -15,10 +17,18 @@ pipeline {
             }
         }
 
-        stage('build') {
+        stage('Build') {
             steps {
                 sh 'ant -f build.xml -v'
             }
+        }
+
+        stage('Deploy') {
+
+            steps {
+                sh 'cp dist/rectangle_${env.BUILD_NUMBER}.jar /var/www/html/rectangles/all/'
+            }
+
         }
 
     }

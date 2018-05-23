@@ -95,6 +95,8 @@ pipeline {
                 sh "git stash"
                 echo "Checking out development branch"
                 sh "git checkout development"
+                echo "Pulling development branch"
+                sh "git pull"
                 echo "Checking out master branch"
                 sh "git checkout master"
                 echo "Merging Development into master branch"

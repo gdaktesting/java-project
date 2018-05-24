@@ -120,7 +120,7 @@ pipeline {
                         body: """<p>
                             Everything went fine and code were prometed to master branch!
                         </p>""",
-                        to: "gdak@casiencuba.com"
+                        to: "gdak2k@gmail.com"
                     )
                 }
             }

@@ -20,6 +20,20 @@ pipeline {
             }
         }
 
+        stage ('Git Information'){
+            agent any
+
+            steps {
+                echo "My Branch name: ${env.BRANCH_NAME}"
+
+                script {
+                    def myLib = new linuxacademy.git.gitStuff();
+
+                    echo "My Commit: ${myLib.gitCommit("${env.WORKSPACE}/.git")}"
+                }
+            }
+        }
+
         stage('Unit Test') {
             agent {
                 label 'master'

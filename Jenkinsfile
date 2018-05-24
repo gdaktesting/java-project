@@ -29,8 +29,8 @@ pipeline {
                 script {
                     def myLib = new linuxacademy.git.gitStuff();
 
-                    echo "Calling the gitCommit function"
-                    echo "My Commit: ${myLib.gitCommit("${env.WORKSPACE}/${env.JOB_NAME}/.git")}"
+                    echo "Calling the gitCommit function at: ${env.WORKSPACE}/.git"
+                    echo "My Commit: ${myLib.gitCommit("${env.WORKSPACE}/.git")}"
                 }
             }
         }

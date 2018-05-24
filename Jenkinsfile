@@ -126,20 +126,18 @@ pipeline {
             }
 
         }
-
-        post {
-            failure {
-                emailext(
-                    subject: "${env.JOB_NAME} [${env.BUILD_NUMBER}] Failed!",
-                    body: """<p>
-                        Check output at Jenkins.
-                    </p>""",
-                    to: "gdak@casiencuba.com"
-                )
-            }
-        }
-
     }
 
+    post {
+        failure {
+            emailext(
+                subject: "${env.JOB_NAME} [${env.BUILD_NUMBER}] Failed!",
+                body: """<p>
+                    Check output at Jenkins.
+                </p>""",
+                to: "gdak@casiencuba.com"
+            )
+        }
+    }
 
 }

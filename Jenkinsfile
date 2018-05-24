@@ -12,6 +12,14 @@ pipeline {
 
     stages {
 
+        stage ('Say Hello'){
+            agent any
+
+            steps {
+                sayHello 'Awesome D'
+            }
+        }
+
         stage('Unit Test') {
             agent {
                 label 'master'
@@ -135,7 +143,7 @@ pipeline {
                 body: """<p>
                     Check output at Jenkins.
                 </p>""",
-                to: "gdak@casiencuba.com"
+                to: "gdak2k@gmail.com"
             )
         }
     }

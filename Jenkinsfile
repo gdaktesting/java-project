@@ -76,7 +76,6 @@ pipeline {
             }
 
             steps {
-                showNodeJSVersion("NodeJS_8.11.2")
 
                 nodejs(nodeJSInstallationName: 'NodeJS_8.11.2') {
                     sh 'node --version'

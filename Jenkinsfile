@@ -76,7 +76,7 @@ pipeline {
             }
 
             steps {
-                agent {
+                agent ('CentOS'){
                     node {
                         env.NODEJS_HOME = "${tool 'NodeJS_8.11.2'}"
                         // on linux / mac

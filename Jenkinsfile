@@ -77,7 +77,7 @@ pipeline {
 
             steps {
 
-                nodejs(nodeJSInstallationName: 'NodeJS_8.11.2', configId: '<config-file-provider-id>') {
+                nodejs(nodeJSInstallationName: 'NodeJS_8.11.2') {
                     sh 'node --version'
                     sh 'npm --version'
                     sh 'gulp --version'

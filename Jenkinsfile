@@ -76,12 +76,10 @@ pipeline {
             }
 
             steps {
-                agent ('CentOS'){
-                    node {
-                        env.NODEJS_HOME = "${tool 'NodeJS_8.11.2'}"
-                        // on linux / mac
-                        env.PATH="${env.NODEJS_HOME}/bin:${env.PATH}"
-                    }
+                node ('CentOS'){
+                    env.NODEJS_HOME = "${tool 'NodeJS_8.11.2'}"
+                    // on linux / mac
+                    env.PATH="${env.NODEJS_HOME}/bin:${env.PATH}"
                 }
 
                 showNodeJSVersion("NodeJS_8.11.2")

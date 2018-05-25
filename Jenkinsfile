@@ -73,12 +73,11 @@ pipeline {
         stage ("Running on CentOS") {
             agent {
                 label 'CentOS'
-            }
-
-            node {
-                env.NODEJS_HOME = "${tool 'NodeJS_8.11.2'}"
-                // on linux / mac
-                env.PATH="${env.NODEJS_HOME}/bin:${env.PATH}"
+                node {
+                    env.NODEJS_HOME = "${tool 'NodeJS_8.11.2'}"
+                    // on linux / mac
+                    env.PATH="${env.NODEJS_HOME}/bin:${env.PATH}"
+                }
             }
 
             steps {

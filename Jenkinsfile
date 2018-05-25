@@ -76,6 +76,7 @@ pipeline {
             }
 
             steps {
+                echo "${env}"
 
                 showNodeJSVersion("NodeJS_8.11.2")
 

@@ -45,7 +45,7 @@ pipeline {
 
         stage('Build') {
             agent {
-                label 'master'
+                label 'CentOS'
             }
 
             steps {

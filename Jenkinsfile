@@ -45,7 +45,7 @@ pipeline {
 
         stage('Build') {
             agent {
-                label 'master'
+                label 'CentOS'
             }
 
             steps {
@@ -76,6 +76,14 @@ pipeline {
             }
 
             steps {
+                showNodeJSVersion("NodeJS_8.11.2")
+
+                nodejs(nodeJSInstallationName: 'NodeJS_8.11.2') {
+                    sh 'node --version'
+                    sh 'npm --version'
+                    sh 'gulp --version'
+                }
+
                 sh "wget http://192.168.56.3/rectangles/all/${env.BRANCH_NAME}/rectangle_${env.MAJOR_VERSION}.${env.BUILD_NUMBER}.jar"
                 sh "java -jar rectangle_${env.MAJOR_VERSION}.${env.BUILD_NUMBER}.jar 3 4"
             }
